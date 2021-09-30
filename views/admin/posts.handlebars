@@ -1,0 +1,51 @@
+<!--==========================
+    INSIDE HERO SECTION Section
+============================-->
+<section class="page-image page-image-about md-padding">
+  <h1 class="text-white text-center">POSTS</h1>
+</section>
+
+<!--==========================
+    ABOUTUS Section
+============================-->
+<section id="aboutus" class="md-padding">
+  <div class="container">
+    {{> admin-nav}}
+
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">TITLE</th>
+              <th scope="col">CATEGORY NAME</th>
+              <th scope="col">EDIT</th>
+              <th scope="col">DELETE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each posts}}
+            <tr scope="row">
+              <td>{{title}}</td>
+              <td>{{category.name}}</td>
+              <td>
+                <a href="/admin/posts/edit/{{_id}}" class="btn btn-warning">EDIT</a>
+              </td>
+              <td>
+                <form action="/admin/posts/{{_id}}?_method=DELETE" method="POST">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit" class="btn btn-danger">DELETE</button>
+                </form>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--==========================
+    THE TEAM
+============================-->
